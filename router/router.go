@@ -11,5 +11,4 @@ func SetupRoutes(app *fiber.App) {
 	app.Get("/swagger/*", swagger.HandlerDefault)
 	api := app.Group("/api", logger.New())
 	personRoutes.SetupPersonRoutes(api)
-
 }

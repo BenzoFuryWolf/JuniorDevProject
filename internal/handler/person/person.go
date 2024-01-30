@@ -173,3 +173,5 @@ func GetPerson(c *fiber.Ctx) error {
 	}
 	return c.JSON(fiber.Map{"status": "success", "message": "Person Found", "data": person})
 }
+
+// Функция пагинации
