@@ -3,7 +3,6 @@ package database
 import (
 	"fmt"
 	"github.com/BenzoFuryWolf/MyProject/config"
-	"github.com/BenzoFuryWolf/MyProject/internal/model"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
@@ -24,10 +23,10 @@ func ConnectDB() {
 
 	DB, err = gorm.Open(postgres.Open(dsn))
 	if err != nil {
-		panic("faild to connect to DB")
+		panic("failed to connect to DB")
 	}
 	fmt.Println("Connection Opened to DB")
 
-	DB.AutoMigrate(&model.Person_info{})
+	//DB.AutoMigrate(&model.Person_info{})
 	fmt.Println("Database Migrated")
 }

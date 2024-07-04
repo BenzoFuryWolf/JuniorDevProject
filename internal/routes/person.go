@@ -6,15 +6,18 @@ import (
 )
 
 func SetupPersonRoutes(router fiber.Router) {
+	usePerson := personHandler.Person{}
 	person := router.Group("/person")
 	//create person
-	person.Post("/add", personHandler.CreatePersons)
+	person.Post("/add", usePerson.CreatePersons)
+	//
+	person.Get("/pagination/:page/:limit", usePerson.Pagination)
 	//read all persons
-	person.Get("/all", personHandler.GetPersons)
+	person.Get("/all", usePerson.GetPersons)
 	//read person
-	person.Get("/:personId", personHandler.GetPerson)
+	person.Get("/:personId", usePerson.GetPerson)
 	//update person
-	person.Put("/:personId", personHandler.UpdatePerson)
+	person.Put("/:personId", usePerson.UpdatePerson)
 	//delete person
-	person.Delete("/:personId", personHandler.DeletePerson)
+	person.Delete("/:personId", usePerson.DeletePerson)
 }
